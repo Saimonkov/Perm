@@ -1,0 +1,418 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="MobileOptimized" content="320">
+    <meta name="HandheldFriendly" content="true">
+
+    <meta name="description" content="{% page_attribute 'meta_description' %}">
+
+    <title>{% page_attribute 'page_title' %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- outher CSS -->
+    <link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    {% render_block "css" %}
+</head>
+<body>
+{% cms_toolbar %}
+{% comment %}{% show_menu 0 100 100 100 %}{% endcomment %}
+<main>
+    <header class="page-header">
+        <div class="page-header__logo-pattern">
+            <a class="page-header__logo-wrapper" href="#">
+                <div class="page-header__title-wrapper">
+                    <h1 class="page-header__title">Название</h1>
+                    <p class="page-header__slogan">Слоган компании</p>
+                </div>
+
+                <div class="page-header__logo-image-wrapper">
+                    <img class="page-header__logo" src="{% static 'img/logo.png' %}" alt="Название сайта, логотип"
+                         width="60" height="60">
+                </div>
+            </a>
+            <div class="page-header__logo-pattern-after"></div>
+        </div>
+
+        <nav class="page-header__nav">
+            <div class="container">
+                <ul class="page-header__nav-list site-navigation">
+                    <li class="site-navigation__item">
+                        <a class="site-navigation__link" href="#">О компании</a>
+                    </li>
+                    <li class="site-navigation__item">
+                        <a class="site-navigation__link" href="#">Преимущества</a>
+                    </li>
+                    <li class="site-navigation__item">
+                        <a class="site-navigation__link" href="#">Услуги</a>
+                    </li>
+                    <li class="site-navigation__item">
+                        <a class="site-navigation__link" href="#">Отзывы</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="page-header__contacts-wrapper">
+            <div class="container">
+                <ul class="page-header__contacts contacts-list">
+                    <li class="contacts-list__item">
+                        <a class="contacts-list__link" href="mailto:vibetoff@gmail.com">vibetoff@gmail.com</a>
+                    </li>
+                    <li class="contacts-list__item">
+                        <a class="contacts-list__link"
+                           href="tel:+70001234567">+7&nbsp;(000)&nbsp;123&ndash;45&ndash;67</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <section class="presentation">
+            <div class="container">
+                <div class="presentation__wrapper">
+                    <h2 class="presentation__title">
+                        <span class="presentation__title-st">Скупка</span>
+                        <span class="presentation__title-nd">радиодеталей</span>
+                        <span class="presentation__title-rd">содержащих драгоценные<br>металлы</span>
+                    </h2>
+
+                    <p class="presentation__order">
+                        <a class="btn btn--theme presentation__btn-order" href="#" data-toggle="modal"
+                           data-target="#myModal">Оставить заявку</a>
+                        <br><span class="presentation__order-text">И получить особые условия<br>на обмен деталей!</span>
+                    </p>
+
+                    <div class="presentation__sub-wrapper">
+                        <h3 class="visually-hidden">Виды скупаемых радиодеталей</h3>
+                        <b class="presentation__title-sub">Что мы скупаем?</b>
+
+                        <ul class="presentation__list presentation-list">
+                            <li class="presentation-list__item presentation-list__item--lamps">Лампы</li>
+                            <li class="presentation-list__item presentation-list__item--boards">Платы</li>
+                            <li class="presentation-list__item presentation-list__item--diodes">Диоды</li>
+                            <li class="presentation-list__item presentation-list__item--micro">Микросхемы</li>
+                        </ul>
+
+                        <p class="presentation__text-sub">а также массу другой электроники!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about">
+            <div class="container">
+                <h2 class="section-title">О компании</h2>
+
+                <div class="about__wrapper">
+                    <div class="about__img-wrapper">
+                        <img class="about__image" src="{% static 'img/about-company.jpg' %}" alt="О компании">
+                    </div>
+
+                    <div class="about__text-wrapper">
+                        <h3 class="about__title">Заголовок <span class="about__title-part">раздела</span></h3>
+                        <p class="about__text">Таким образом консультация с широким активом требуют от нас анализа
+                            позиций, занимаемых участниками в отношении поставленных задач. Таким образом постоянное
+                            информационно-пропагандистское обеспечение нашей деятельности в значительной степени
+                            обуславливает создание направлений прогрессивного развития. Не следует, однако забывать, что
+                            новая модель организационной деятельности требуют от нас анализа форм развития.</p>
+                    </div>
+                </div>
+
+                <div class="about__panel">
+                    <ul class="about__list about-list">
+                        <li class="about-list__item">
+                            <div class="about-list__img-wrapper">
+                                <img src="{% static 'img/about_01.jpg' %}" alt="Заголовок">
+                            </div>
+                            <div class="about-list__text-wrapper">
+                                <h3 class="about-list__title">Заголовок</h3>
+                                <p class="about-list__text">Таким образом консультация с широким активом требуют от нас
+                                    анализа позиций.</p>
+                                <a class="about-list__btn" href="#">Подробнее</a>
+                            </div>
+                        </li>
+
+                        <li class="about-list__item">
+                            <div class="about-list__img-wrapper">
+                                <img src="{% static 'img/about_02.jpg' %}" alt="Заголовок">
+                            </div>
+                            <div class="about-list__text-wrapper">
+                                <h3 class="about-list__title">Заголовок</h3>
+                                <p class="about-list__text">Постоянное информационно-пропагандистское обеспечение нашей
+                                    деятельности.</p>
+                                <a class="about-list__btn" href="#">Подробнее</a>
+                            </div>
+                        </li>
+
+                        <li class="about-list__item">
+                            <div class="about-list__img-wrapper">
+                                <img src="{% static 'img/about_03.jpg' %}" alt="Заголовок">
+                            </div>
+                            <div class="about-list__text-wrapper">
+                                <h3 class="about-list__title">Заголовок</h3>
+                                <p class="about-list__text">Таким образом консультация с широким активом требуют от нас
+                                    анализа позиций.</p>
+                                <a class="about-list__btn" href="#">Подробнее</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section services">
+            <div class="container">
+                <h2 class="section-title">Наши <span class="section-title__color">услуги</span></h2>
+
+                <p class="services__text">Не следует, однако забывать, что сложившаяся структура организации позволяет
+                    оценить значение позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако
+                    забывать, что новая модель организационной деятельности способствует подготовки и реализации форм
+                    развития.</p>
+
+                <h3 class="visually-hidden">Выбор товара</h3>
+                <b class="services__choose-title">Выберите товар</b>
+
+                <ul class="services__list">
+                    <li class="services__item">
+                        <a class="services__link services__link--lamps" href="#">
+                            <h4 class="services__item-title">Лампы</h4>
+                            <p class="services__item-sub-title">Подзаголовок</p>
+                        </a>
+                    </li>
+                    <li class="services__item">
+                        <a class="services__link services__link--boards" href="#">
+                            <h4 class="services__item-title">Платы</h4>
+                            <p class="services__item-sub-title">Подзаголовок</p>
+                        </a>
+                    </li>
+                    <li class="services__item">
+                        <a class="services__link services__link--diodes" href="#">
+                            <h4 class="services__item-title">Диоды</h4>
+                            <p class="services__item-sub-title">Подзаголовок</p>
+                        </a>
+                    </li>
+                    <li class="services__item">
+                        <a class="services__link services__link--micro" href="#">
+                            <h4 class="services__item-title">Микросхемы</h4>
+                            <p class="services__item-sub-title">Подзаголовок</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="services__wrapper">
+                    <div class="services__add-wrapper">
+                        <div class="services__add-text-wrapper">
+                            <h4 class="services__add-title">Элетронные платы</h4>
+                            <p class="services__add-text">Таким образом консультация с широким активом требуют от нас
+                                анализа позиций.</p>
+                        </div>
+                        <img class="services__add-image" src="{% static 'img/services.jpg' %}" alt="Элетронные платы"
+                             class="services__tab-image">
+                    </div>
+
+                    <div class="services__tab-wrapper">
+                        <h4 class="services__tab-title">Скупка и обмен</h4>
+                        <p class="services__tab-text">Не следует, однако забывать, что сложившаяся структура организации
+                            позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач.
+                            Не следует, однако забывать, что новая модель организационной деятельности способствует
+                            подготовки и реализации форм развития.</p>
+                        <b class="services__cost-title">Стоимость</b>
+
+                        <div class="services__price-list">
+                            <div class="services__price-wrapper">
+                                <div class="services__price-wrapper-right">
+                                    <h5 class="services__price-title">Заголовок</h5>
+                                    <p class="services__price-sub-title">Подзаголовок</p>
+                                </div>
+                                <div class="services__price-wrapper-left">
+                                    <span class="services__price">1990</span>
+                                    <br><span class="services__cost">рублей</span>
+                                </div>
+                            </div>
+
+                            <div class="services__price-wrapper">
+                                <div class="services__price-wrapper-right">
+                                    <h5 class="services__price-title">Заголовок</h5>
+                                    <p class="services__price-sub-title">Подзаголовок</p>
+                                </div>
+                                <div class="services__price-wrapper-left">
+                                    <span class="services__price">1990</span>
+                                    <br><span class="services__cost">рублей</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="btn services__btn-order" href="#">Заказать сделку</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section offer">
+            <div class="container">
+                <h2 class="offet__title"><span class="offer__title-st">Специальное</span> предложение</h2>
+            </div>
+            <div class="offer__image">
+                <img class="" src="{% static 'img/offer.jpg' %}" alt="">
+            </div>
+            <div class="container">
+                <p class="offer__text">Равным образом начало повседневной работы по формированию позиции позволяет
+                    выполнять важные задания по разработке дальнейших направлений развития.</p>
+                <b class="offer__price">990 р.</b>
+                <b class="offer__price-old">2990 р.</b>
+                <a class="btn offer__btn" href="#">Оставить заявку!</a>
+            </div>
+        </section>
+
+        <section class="section reviews">
+            <div class="container">
+                <h2 class="section-title">Отзывы <span class="section-title__color">клиентов</span></h2>
+                <p class="reviews__intro">Равным образом начало повседневной работы по формированию позиции позволяет
+                    выполнять важные задания по разработке дальнейших направлений развития. Не следует, однако забывать,
+                    что новая модель организационной деятельности требуют определения и уточнения модели развития.</p>
+
+                <ul class="reviews__list">
+                    <li class="reviews__item">
+                        <div class="reviews__heading-wrapper">
+                            <h3 class="reviews__name">Имя, Фамилия</h3>
+                            <p class="reviews__service">Тип оказываемой услуги</p>
+                        </div>
+                        <img class="reviews__photo" src="{% static 'img/review1.PNG' %}" alt="Имя, Фамилия">
+                        <p class="reviews__text">Равным образом начало повседневной работы по формированию позиции
+                            позволяет выполнять важные задания по разработке дальнейших направлений развития. Не
+                            следует, однако забывать, что новая модель организационной деятельности требуют определения
+                            и уточнения модели развития.</p>
+                    </li>
+                    <li class="reviews__item">
+                        <div class="reviews__heading-wrapper">
+                            <h3 class="reviews__name">Имя, Фамилия</h3>
+                            <p class="reviews__service">Тип оказываемой услуги</p>
+                        </div>
+                        <img class="reviews__photo" src="{% static 'img/review3.PNG' %}" alt="Имя, Фамилия">
+                        <p class="reviews__text">Равным образом начало повседневной работы по формированию позиции
+                            позволяет выполнять важные задания по разработке дальнейших направлений развития. Не
+                            следует, однако забывать, что новая модель организационной деятельности требуют определения
+                            и уточнения модели развития.</p>
+                    </li>
+                    <li class="reviews__item">
+                        <div class="reviews__heading-wrapper">
+                            <h3 class="reviews__name">Имя, Фамилия</h3>
+                            <p class="reviews__service">Тип оказываемой услуги</p>
+                        </div>
+                        <img class="reviews__photo" src="{% static 'img/review2.PNG' %}" alt="Имя, Фамилия">
+                        <p class="reviews__text">Равным образом начало повседневной работы по формированию позиции
+                            позволяет выполнять важные задания по разработке дальнейших направлений развития. Не
+                            следует, однако забывать, что новая модель организационной деятельности требуют определения
+                            и уточнения модели развития.</p>
+                    </li>
+                </ul>
+
+                <a class="btn reviews__btn" href="#">Больше отзывов</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="page-footer__wrapper">
+                <div class="page-footer__left-column">
+                    <a class="page-footer__logo-wrapper" href="#">
+                        <div class="page-footer__title-wrapper">
+                            <h2 class="page-footer__title">Название</h2>
+                            <p class="page-footer__slogan">Слоган компании</p>
+                        </div>
+
+                        <div class="page-footer__img-wrapper">
+                            <img src="{% static 'img/logo.png' %}" alt="Название сайта, логотип"
+                                 class="page-header__logo" width="60" height="60">
+                        </div>
+                    </a>
+
+                    <p class="page-footer__description">Равным образом начало повседневной работы по формированию
+                        позиции позволяет выполнять важные задания по разработке дальнейших направлений развития
+                        участниками в отношении поставленных задач.</p>
+                </div>
+
+                <div class="page-footer__center-column">
+                    <h3 class="page-footer__nav-title">Навигация</h3>
+                    <ul class="page-footer__nav-list footer-navigation">
+                        <li class="footer-navigation__item">
+                            <a class="footer-navigation__link" href="#">О компании</a>
+                        </li>
+                        <li class="footer-navigation__item">
+                            <a class="footer-navigation__link" href="#">Преимущества</a>
+                        </li>
+                        <li class="footer-navigation__item">
+                            <a class="footer-navigation__link" href="#">Услуги</a>
+                        </li>
+                        <li class="footer-navigation__item">
+                            <a class="footer-navigation__link" href="#">Отзывы</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="page-footer__right-column">
+                    <h3 class="page-footer__contacts-title">Контакты</h3>
+                    <ul class="page-footer__contacts footer-contacts">
+                        <li class="footer-contacts__item">
+                            <a class="footer-contacts__link footer-contacts__link--phone" href="tel:+70001234567">+7&nbsp;(000)&nbsp;123&ndash;45&ndash;67</a>
+                        </li>
+                        <li class="footer-contacts__item">
+                            <a class="footer-contacts__link footer-contacts__link--mail"
+                               href="mailto:vibetoff@gmail.com">vibetoff@gmail.com</a>
+                        </li>
+                    </ul>
+
+                    <ul class="page-footer__social footer-social">
+                        <li class="footer-social__item">
+                            <a class="footer-social__link footer-social__link--vk" href="#" target="_blank"><span
+                                    class="visually-hidden">Вконтакте</span></a>
+                        </li>
+                        <li class="footer-social__item">
+                            <a class="footer-social__link footer-social__link--fb" href="#" target="_blank"><span
+                                    class="visually-hidden">Фейсбук</span></a>
+                        </li>
+                        <li class="footer-social__item">
+                            <a class="footer-social__link footer-social__link--ig" href="#" target="_blank"><span
+                                    class="visually-hidden">Инстаграм</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="container">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Заголовок Окна</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+
+                    </div>
+                    <div class="modal-body">
+                        {% placeholder "form" %}
+                    </div>
+                    {% comment %}    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>{% endcomment %}
+                </div>
+            </div>
+        </div>
+
+        <!-- END_MODAL -->
+        <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        {% render_block "js" %}
+</body>
+</html>
